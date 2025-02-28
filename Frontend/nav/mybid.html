@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuctionXpert - Place Your Bid</title>
+    <link rel="stylesheet" href="/Frontend/css/mybid.css">
+    <link rel="icon" href="/assets/images/favicon.icon">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="/Frontend/index.html">Home</a></li>
+                    <li><a href="/Frontend/nav/Browse-Auctions.html">Browse Auctions</a></li>
+                    <li><a href="/Frontend/nav/Start-Bidding.html">Start Bidding</a></li>
+                    <li><a href="/Frontend/nav/how-it-works.html">How It Works</a></li>
+                    <li><a href="/Frontend/nav/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Bid Page Content -->
+    <section class="bid-page">
+        <div class="container">
+            <div class="auction-item">
+                <h2>Item Name: Luxury Watch</h2>
+                <div class="auction-details">
+                    <div class="item-image">
+                        <img src="/Frontend/img/Luxury_Watch.jpg" alt="Luxury Watch">
+                    </div>
+                    <div class="item-info">
+                        <h3>Current Bid: ₹50,000</h3>
+                        <h3>Time Remaining: <span id="time-left">1h 30m</span></h3>
+                        <p>Bid now and own this luxury timepiece!</p>
+                    </div>
+                </div>
+                <div class="bid-actions">
+                    <input type="number" id="bid-amount" placeholder="Enter your bid in ₹">
+                    <button class="place-bid-btn" onclick="placeBid()">Place Bid</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 AuctionXpert. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/Frontend/js/mybid.js"></script>
+</body>
+
+</html>

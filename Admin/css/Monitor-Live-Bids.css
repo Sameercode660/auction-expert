@@ -1,0 +1,61 @@
+/* Dark Theme */
+body {
+    background-color: #222;
+    color: #ffcc00;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #111;
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 2px solid #ffcc00;
+}
+
+.search-filter {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.search-filter input {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #ffcc00;
+    background: #333;
+    color: #ffcc00;
+}
+
+.search-filter button {
+    padding: 10px;
+    background: #ffcc00;
+    color: #222;
+    border: none;
+    cursor: pointer;
+}
+
+.live-bids {
+    width: 80%;
+    margin: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #333;
+    color: #ffcc00;
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #ffcc00;
+    text-align: center;
+}
+
+th {
+    background: #111;
+}

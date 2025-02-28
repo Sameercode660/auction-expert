@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password - AuctionXpert</title>
+    <link rel="stylesheet" href="/Admin/css/forgot_pass.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="forgot-password-wrapper">
+        <div class="forgot-password-container">
+            <h2><i class="fa-solid fa-lock"></i> Reset Password</h2>
+            <p>Enter your email and we'll send you a link to reset your password.</p>
+            <form id="forgotPasswordForm">
+                <!-- Email Input -->
+                <div class="input-group">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+
+                <!-- Reset Button -->
+                <button type="submit">Send Reset Link <i class="fa-solid fa-paper-plane"></i></button>
+
+                <!-- Back to Login -->
+                <p>Remembered? <a href="/Admin/Auth/admin-login.html">Back to Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="/Admin/js/forgot_pass.js"></script>
+</body>
+</html>

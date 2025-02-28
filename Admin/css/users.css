@@ -1,0 +1,100 @@
+/* Dark Theme Colors */
+:root {
+    --primary-color: #ffcc00;
+    --background-dark: #222;
+    --text-light: #fff;
+    --hover-dark: #333;
+    --border-light: rgba(255, 255, 255, 0.2);
+}
+
+/* General Page Styles */
+body {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Section Title */
+.users-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Search & Filter */
+.user-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.user-controls input, .user-controls select {
+    padding: 8px;
+    border: 1px solid var(--border-light);
+    background-color: var(--hover-dark);
+    color: var(--text-light);
+    border-radius: 5px;
+}
+
+/* Users Table */
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--hover-dark);
+}
+
+.users-table th, .users-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.users-table th {
+    background-color: var(--primary-color);
+    color: black;
+}
+
+/* Status Badges */
+.active {
+    color: #0f0;
+    font-weight: bold;
+}
+
+.inactive {
+    color: #f00;
+    font-weight: bold;
+}
+
+/* Action Buttons */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.edit-btn {
+    color: #ffcc00;
+}
+
+.delete-btn {
+    color: red;
+}
+
+.block-btn {
+    color: orange;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .user-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

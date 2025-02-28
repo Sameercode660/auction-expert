@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AuctionXpert - Login</title>
+    <link rel="stylesheet" href="/Frontend/css/login.css" />
+    <script defer src="/Frontend/js/login.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div class="login-container">
+      <div class="login-box">
+        <h2>Welcome Back!</h2>
+        <p>Login to continue bidding on exclusive auctions.</p>
+
+        <div>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div class="input-group password-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+            <i class="fa fa-eye" id="togglePassword"></i>
+          </div>
+
+          <div class="remember-forgot">
+            <label><input type="checkbox" /> Remember Me</label>
+            <a href="/Frontend/auth/forgot_pass.html">Forgot Password?</a>
+          </div>
+
+          <button class="login-btn">Login</button>
+
+          <p class="register-link">
+            Don't have an account?
+            <a href="/Frontend/auth/signup.html">Sign Up</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const email = document.querySelector("#email");
+      const password = document.querySelector("#password");
+      const submitButton = document.querySelector(".login-btn");
+
+      submitButton.addEventListener('click', handleLogin)
+      
+      async function handleLogin() {
+        try {
+          if (!email.value || !password.value) {
+            alert("Anyone field is empty");
+            return;
+          }
+
+          const data = {
+            email: email.value,
+            password: password.value,
+          };
+          submitButton.innerHTML = "Loading...";
+          const response = await axios.post(
+            "http://localhost:3000/api/auth/login",
+            data
+          );
+
+          if (response.data.status == true) {
+            window.location.href = "/Frontend";
+            localStorage.setItem("isLogin", "true");
+            localStorage.setItem("name", response.data.data.name);
+            localStorage.setItem("email", response.data.data.email);
+          } else {
+            alert(response.data.message);
+            localStorage.setItem("isLogin", "false");
+            localStorage.setItem("name", "null");
+            localStorage.setItem("email", "null");
+          }
+        } catch (error) {
+          console.log(error);
+          alert("unable to login");
+        } finally {
+          submitButton.innerHTML = "Login";
+        }
+      }
+    </script>
+  </body>
+</html>

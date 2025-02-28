@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor Live Bids | AuctionXpert Admin</title>
+    <link rel="stylesheet" href="/Admin/css/Monitor-Live-Bids.css">
+    <script src="/Admin/js/Monitor-Live-Bids.js" defer></script>
+    <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script> 
+</head>
+<body>
+
+    <header>
+        <h1><i class="fas fa-gavel"></i> Live Bids Monitoring</h1>
+    </header>
+
+    <section class="search-filter">
+        <input type="text" id="searchBid" placeholder="Search by Item or User">
+        <button onclick="filterBids()"><i class="fas fa-search"></i> Search</button>
+    </section>
+
+    <section class="live-bids">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Bidder</th>
+                    <th>Bid Amount</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="bidList">
+                <!-- Live Bid Data -->
+            </tbody>
+        </table>
+    </section>
+
+</body>
+</html>

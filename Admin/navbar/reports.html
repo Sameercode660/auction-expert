@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - AuctionXpert</title>
+    <link rel="stylesheet" href="/Admin/css/reports.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Reports Container -->
+    <div class="reports-wrapper">
+        <header class="reports-header">
+            <h2><i class="fa-solid fa-chart-line"></i> Reports & Analytics</h2>
+            <div class="search-bar">
+                <input type="text" id="reportSearch" placeholder="Search Reports...">
+                <button><i class="fa-solid fa-search"></i></button>
+            </div>
+        </header>
+
+        <!-- Summary Cards -->
+        <div class="report-summary">
+            <div class="summary-card">
+                <i class="fa-solid fa-gavel"></i>
+                <h3>Total Auctions</h3>
+                <p>120</p>
+            </div>
+            <div class="summary-card">
+                <i class="fa-solid fa-users"></i>
+                <h3>Total Users</h3>
+                <p>350</p>
+            </div>
+            <div class="summary-card">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <h3>Total Revenue</h3>
+                <p>₹1,25,000</p>
+            </div>
+            <div class="summary-card">
+                <i class="fa-solid fa-clock"></i>
+                <h3>Active Bids</h3>
+                <p>45</p>
+            </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <select id="reportFilter">
+                <option value="all">All Reports</option>
+                <option value="auction">Auction Reports</option>
+                <option value="user">User Reports</option>
+                <option value="transaction">Transaction Reports</option>
+            </select>
+        </div>
+
+        <!-- Reports Table -->
+        <div class="reports-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Report ID</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="reportData">
+                    <tr>
+                        <td>#RPT001</td>
+                        <td>Auction</td>
+                        <td>2025-02-18</td>
+                        <td>Completed</td>
+                        <td><button class="view-btn"><i class="fa-solid fa-eye"></i> View</button></td>
+                    </tr>
+                    <tr>
+                        <td>#RPT002</td>
+                        <td>User</td>
+                        <td>2025-02-17</td>
+                        <td>Pending</td>
+                        <td><button class="view-btn"><i class="fa-solid fa-eye"></i> View</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="/Admin/js/reports.js"></script>
+</body>
+</html>

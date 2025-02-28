@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuctionXpert - Navbar</title>
+    <link rel="stylesheet" href="/Frontend/css/Browse-Auctions.css">
+    <script defer src="/Frontend/js/Browse-Auctions.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <!-- Logo -->
+            <div class="logo">
+                <i class="fas fa-gavel"></i> AuctionXpert
+            </div>
+
+            <!-- Navbar Links -->
+            <ul class="navbar-links">
+                <li><a href="/Frontend/index.html">Home</a></li>
+                <li><a href="/Frontend/nav/Browse-Auctions.html">Browse Auctions</a></li>
+                <li><a href="/Frontend/nav/how-it-works.html">How It Works</a></li>
+                <li><a href="contact-us.html">Contact</a></li>
+            </ul>
+
+            <!-- Login & Signup Buttons -->
+            <div class="navbar-buttons">
+                <a href="/Frontend/auth/login.html" class="login-btn">Login</a>
+                <a href="/Frontend/auth/signup.html" class="signup-btn">Sign Up</a>
+            </div>
+
+            <!-- Mobile Menu Icon -->
+            <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu">
+            <ul class="mobile-navbar-links">
+                <li><a href="/Frontend/index.html">Home</a></li>
+                <li><a href="/Frontend/nav/Browse-Auctions.html">Browse Auctions</a></li>
+                <li><a href="/Frontend/nav/how-it-works.html">How It Works</a></li>
+                <li><a href="contact-us.html">Contact</a></li>
+                <li><a href="/Frontend/auth/login.html" class="mobile-login-btn">Login</a></li>
+                <li><a href="/Frontend/auth/signup.html" class="mobile-signup-btn">Sign Up</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bid Smart, Win Big! <span class="gold-text">Luxury Auctions</span></h1>
+            <p>Experience real-time bidding on exclusive items. Place your bids and win at the best prices.</p>
+
+            <!-- Auction Countdown Timer -->
+            <div class="countdown-container">
+                <h3>Next Auction Ends In:</h3>
+                <div class="countdown-timer" id="countdown">
+                    <div class="time-box"><span id="days">00</span> Days</div>
+                    <div class="time-box"><span id="hours">00</span> Hrs</div>
+                    <div class="time-box"><span id="minutes">00</span> Min</div>
+                    <div class="time-box"><span id="seconds">00</span> Sec</div>
+                </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="hero-buttons">
+                <a href="/Frontend/nav/Browse-Auctions.html" class="btn bid-now">Browse Auctions</a>
+                <a href="/Frontend/auth/signup.html" class="btn join-now">Join Now</a>
+            </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="hero-image">
+            <img src="/Frontend/img/Vintage_Car.jpg" alt="Auction Item">
+        </div>
+    </section>
+
+    <!-- Filter & Search Section -->
+    <section class="filter-search">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search for auctions..." onkeyup="filterAuctions()">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <div class="filter-container">
+            <!-- Category Filter -->
+            <div class="filter-box">
+                <label for="category">Category</label>
+                <select id="category" onchange="filterAuctions()">
+                    <option value="all">All Categories</option>
+                    <option value="cars">Luxury Cars</option>
+                    <option value="watches">Watches</option>
+                    <option value="art">Art & Antiques</option>
+                    <option value="real-estate">Real Estate</option>
+                </select>
+            </div>
+
+            <!-- Price Filter -->
+            <div class="filter-box">
+                <label for="price-range">Price Range</label>
+                <input type="range" id="price-range" min="0" max="10000000" step="50000" value="5000000"
+                    oninput="updatePriceValue(this.value)">
+                <span id="price-value">₹5,000,000</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Auctions Section -->
+    <section class="live-auctions">
+        <h2>🔥 Live Auctions</h2>
+        <div class="auction-grid">
+            <div class="auction-item" data-id="1">
+                <img src="/Frontend/img/RR_PHANTOM.jpg" alt="Luxury Car">
+                <h3>Rolls Royce Phantom</h3>
+                <p class="current-bid">Current Bid: <span class="bid-amount">₹2,00,00,000</span></p>
+                <p class="time-remaining" data-time="300">⏳ Time Left: <span class="timer">05:00</span></p>
+                <button class="bid-button">Place a Bid</button>
+            </div>
+
+            <div class="auction-item" data-id="2">
+                <img src="/Frontend/img/Rolex Submariner.jpg" alt="Luxury Watch">
+                <h3>Rolex Submariner</h3>
+                <p class="current-bid">Current Bid: <span class="bid-amount">₹15,00,000</span></p>
+                <p class="time-remaining" data-time="600">⏳ Time Left: <span class="timer">10:00</span></p>
+                <button class="bid-button">Place a Bid</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Auctions Section -->
+    <section class="trending-auctions">
+        <h2>🔥 Trending Auctions</h2>
+        <div class="auction-slider">
+            <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <div class="auction-container">
+                <div class="auction-item" data-id="1">
+                    <img src="/Frontend/img/SunseekerYacht.jpg" alt="Luxury Yacht">
+                    <h3>Sunseeker Yacht</h3>
+                    <p class="current-bid">Current Bid: <span class="bid-amount">₹7,50,00,000</span></p>
+                    <p class="time-remaining" data-time="450">⏳ Time Left: <span class="timer">07:30</span></p>
+                    <button class="bid-button">Place a Bid</button>
+                </div>
+
+                <div class="auction-item" data-id="2">
+                    <img src="/Frontend/img/BeverlyHillsMansion.jpg" alt="Luxury Mansion">
+                    <h3>Beverly Hills Mansion</h3>
+                    <p class="current-bid">Current Bid: <span class="bid-amount">₹50,00,00,000</span></p>
+                    <p class="time-remaining" data-time="900">⏳ Time Left: <span class="timer">15:00</span></p>
+                    <button class="bid-button">Place a Bid</button>
+                </div>
+            </div>
+            <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Upcoming Auctions Section -->
+    <section class="upcoming-auctions">
+        <h2>📅 Upcoming Auctions</h2>
+        <div class="auction-grid">
+            <div class="auction-card" data-time="86400">
+                <img src="/Frontend/img/2024Rolls-RoycePhantom.jpg" alt="Luxury Car">
+                <h3>2024 Rolls-Royce Phantom</h3>
+                <p class="start-price">Starting Price: <span>₹5,00,00,000</span></p>
+                <p class="auction-start">Starts in: <span class="countdown">24:00:00</span></p>
+                <button class="notify-button">Get Notified</button>
+            </div>
+
+            <div class="auction-card" data-time="172800">
+                <img src="/Frontend/img/Rolex Daytona Platinum.jpg" alt="Luxury Watch">
+                <h3>Rolex Daytona Platinum</h3>
+                <p class="start-price">Starting Price: <span>₹2,00,00,000</span></p>
+                <p class="auction-start">Starts in: <span class="countdown">48:00:00</span></p>
+                <button class="notify-button">Get Notified</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Bid on Exclusive Items?</h2>
+            <p>Join AuctionXpert now and start bidding on luxury auctions with real-time updates.</p>
+            <div class="cta-buttons">
+                <a href="/Frontend/auth/signup.html" class="cta-btn primary">Join Now</a>
+                <a href="browse-auctions.html" class="cta-btn secondary">Explore Auctions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="logo">
+                <i class="fas fa-gavel"></i> AuctionXpert
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="/Frontend/nav/Browse-Auctions.html">Browse Auctions</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank" class="social-icon"><i
+                        class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AuctionXpert. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

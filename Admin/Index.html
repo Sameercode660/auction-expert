@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuctionXpert Admin Panel</title>
+    <link rel="stylesheet" href="/Admin/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+</head>
+
+<body>
+
+    <header class="admin-header">
+        <div class="logo">
+            <i class="fas fa-gavel"></i> AuctionXpert Admin
+        </div>
+        <nav class="nav-links">
+            <a href="/Admin/Dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+            <a href="/Admin/navbar/users.html"><i class="fas fa-users"></i> Users</a>
+            <a href="/Admin/navbar/auctions.html"><i class="fas fa-box"></i> Auctions</a>
+            <a href="/Admin/navbar/Transactions.html"><i class="fas fa-history"></i> Transactions</a>
+            <a href="/Admin/navbar/reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+        </nav>
+        <div class="header-right">
+            <button id="darkModeToggle"><i class="fas fa-moon"></i></button>
+            <div class="notifications">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+            </div>
+            <div class="profile">
+                <img src="/Admin/img/admin-icon.jpg" alt="Admin Avatar">
+                <span>Admin</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1><i class="fas fa-user-shield"></i> Welcome, Admin!</h1>
+            <p>Manage auctions, bids, users, and transactions with ease.</p>
+
+            <div class="hero-buttons">
+                <a href="/Admin/navbar/auctions.html" class="cta-btn primary-btn"><i class="fas fa-plus-circle"></i> Create Auction</a>
+                <a href="/Admin/navbar/reports.html" class="cta-btn secondary-btn"><i class="fas fa-chart-line"></i> View Reports</a>
+            </div>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-box">
+                <i class="fas fa-gavel"></i>
+                <h2>25</h2>
+                <p>Live Auctions</p>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-users"></i>
+                <h2>1,200</h2>
+                <p>Active Users</p>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-wallet"></i>
+                <h2>₹2.5M</h2>
+                <p>Total Revenue</p>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-bolt"></i>
+                <h2>500</h2>
+                <p>Bids Placed Today</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="live-auction-monitor">
+        <h1><i class="fas fa-chart-line"></i> Live Auction Monitoring</h1>
+        <p>Track real-time bidding activity, auction status, and top bidders.</p>
+
+        <div class="auction-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Auction Item</th>
+                        <th>Current Bid</th>
+                        <th>Highest Bidder</th>
+                        <th>Status</th>
+                        <th>Time Left</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="auction-list">
+                    <!-- Data will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="manage-users">
+        <h1><i class="fas fa-users-cog"></i> Manage Users</h1>
+        <p>View, manage, and control users on the AuctionXpert platform.</p>
+
+        <div class="user-controls">
+            <input type="text" id="searchUser" placeholder="Search users..." onkeyup="searchUsers()">
+        </div>
+
+        <div class="users-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="user-list">
+                    <!-- Data will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="manage-auctions">
+        <h1><i class="fas fa-gavel"></i> Manage Auctions</h1>
+        <p>Add, edit, and manage auctions on AuctionXpert.</p>
+    
+        <div class="auction-controls">
+            <button class="add-auction-btn" onclick="openModal()"><i class="fas fa-plus-circle"></i> Add Auction</button>
+            <input type="text" id="searchAuction" placeholder="Search auctions..." onkeyup="searchAuctions()">
+        </div>
+    
+        <div class="auctions-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Starting Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="auction-list">
+                    <!-- Data will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+    <!-- Modal for Adding/Editing Auction -->
+    <div id="auctionModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2><i class="fas fa-gavel"></i> Add/Edit Auction</h2>
+            <label for="itemName">Item Name:</label>
+            <input type="text" id="itemName">
+            
+            <label for="startingPrice">Starting Price (₹):</label>
+            <input type="number" id="startingPrice">
+    
+            <label for="auctionStatus">Status:</label>
+            <select id="auctionStatus">
+                <option value="live">Live</option>
+                <option value="upcoming">Upcoming</option>
+                <option value="ended">Ended</option>
+            </select>
+    
+            <button onclick="saveAuction()">Save Auction</button>
+        </div>
+    </div>
+
+    
+    <section class="bidding-history">
+        <h1><i class="fas fa-history"></i> Bidding & Transaction History</h1>
+        <p>Track your past bids and transactions in real-time.</p>
+    
+        <div class="history-controls">
+            <input type="text" id="searchHistory" placeholder="Search by item or amount..." onkeyup="searchHistory()">
+        </div>
+    
+        <div class="history-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Bid Amount</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="history-list">
+                    <!-- Data will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    
+
+    <section class="reports">
+        <h1><i class="fas fa-chart-line"></i> Reports & Analytics</h1>
+        <p>Monitor auction performance, user engagement, and transactions.</p>
+    
+        <div class="report-filters">
+            <input type="text" id="searchReports" placeholder="Search by keyword..." onkeyup="filterReports()">
+        </div>
+    
+        <div class="report-cards">
+            <div class="card">
+                <i class="fas fa-gavel"></i>
+                <h2>Total Auctions</h2>
+                <p id="total-auctions">0</p>
+            </div>
+    
+            <div class="card">
+                <i class="fas fa-user"></i>
+                <h2>Active Users</h2>
+                <p id="active-users">0</p>
+            </div>
+    
+            <div class="card">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h2>Total Bids</h2>
+                <p id="total-bids">0</p>
+            </div>
+    
+            <div class="card">
+                <i class="fas fa-wallet"></i>
+                <h2>Total Revenue</h2>
+                <p id="total-revenue">₹0</p>
+            </div>
+        </div>
+    
+        <div class="report-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Auction Item</th>
+                        <th>Bids Placed</th>
+                        <th>Highest Bid</th>
+                        <th>Winner</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="report-list">
+                    <!-- Data will be dynamically added -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-content">
+            <h2><i class="fas fa-tachometer-alt"></i> Manage Your Auctions with Ease</h2>
+            <p>Take control of your auctions, track bids, and maximize revenue with AuctionXpert’s powerful admin panel.</p>
+            <div class="cta-buttons">
+                <button class="cta-btn" id="manage-auctions-btn">
+                    <i class="fas fa-gavel"></i> Manage Auctions
+                </button>
+                <button class="cta-btn" id="view-reports-btn">
+                    <i class="fas fa-chart-line"></i> View Reports
+                </button>
+                <button class="cta-btn" id="user-management-btn">
+                    <i class="fas fa-users"></i> User Management
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+<footer class="admin-footer">
+    <div class="footer-content">
+        <div class="footer-left">
+            <h3><i class="fas fa-gavel"></i> AuctionXpert Admin</h3>
+            <p>Manage, monitor, and optimize auctions efficiently with the AuctionXpert Admin Panel.</p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="/Admin/Dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="/Admin/navbar/users.html"><i class="fas fa-user-cog"></i> User Management</a></li>
+                <li><a href="/Admin/navbar/reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
+                <li><a href="/Admin/navbar/settings.html"><i class="fas fa-cogs"></i> Settings</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-right">
+            <h4>Contact Support</h4>
+            <p><i class="fas fa-envelope"></i> support@auctionxpert.com</p>
+            <p><i class="fas fa-phone"></i> +91 87998 86873</p>
+            <p><i class="fas fa-map-marker-alt"></i> Pune, India</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 AuctionXpert Admin Panel | All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <script src="/Admin/js/main.js"></script>
+</body>
+
+</html>

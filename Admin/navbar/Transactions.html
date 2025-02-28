@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions - AuctionXpert</title>
+    <link rel="stylesheet" href="/Admin/css/Transactions.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Transactions Container -->
+    <div class="transactions-wrapper">
+        <header class="transactions-header">
+            <h2><i class="fa-solid fa-wallet"></i> Transactions</h2>
+            <div class="search-bar">
+                <input type="text" id="transactionSearch" placeholder="Search Transactions...">
+                <button><i class="fa-solid fa-search"></i></button>
+            </div>
+        </header>
+
+        <!-- Summary Cards -->
+        <div class="transaction-summary">
+            <div class="summary-card">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <h3>Total Transactions</h3>
+                <p>₹2,50,000</p>
+            </div>
+            <div class="summary-card">
+                <i class="fa-solid fa-check-circle"></i>
+                <h3>Successful Transactions</h3>
+                <p>245</p>
+            </div>
+            <div class="summary-card">
+                <i class="fa-solid fa-times-circle"></i>
+                <h3>Failed Transactions</h3>
+                <p>12</p>
+            </div>
+            <div class="summary-card">
+                <i class="fa-solid fa-clock"></i>
+                <h3>Pending Transactions</h3>
+                <p>5</p>
+            </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <select id="transactionFilter">
+                <option value="all">All Transactions</option>
+                <option value="successful">Successful</option>
+                <option value="failed">Failed</option>
+                <option value="pending">Pending</option>
+            </select>
+        </div>
+
+        <!-- Transactions Table -->
+        <div class="transactions-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>User</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionData">
+                    <tr>
+                        <td>#TXN001</td>
+                        <td>Omkar Kadam</td>
+                        <td>₹5000</td>
+                        <td class="success">Successful</td>
+                        <td>2025-02-18</td>
+                        <td><button class="view-btn"><i class="fa-solid fa-eye"></i> View</button></td>
+                    </tr>
+                    <tr>
+                        <td>#TXN002</td>
+                        <td>Ashok Smith</td>
+                        <td>₹1200</td>
+                        <td class="failed">Failed</td>
+                        <td>2025-02-17</td>
+                        <td><button class="view-btn"><i class="fa-solid fa-eye"></i> View</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="/Admin/js/Transactions.js"></script>
+</body>
+</html>

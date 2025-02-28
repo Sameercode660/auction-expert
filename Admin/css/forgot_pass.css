@@ -1,0 +1,113 @@
+/* Theme Colors */
+:root {
+    --primary-color: #ffcc00;
+    --background-dark: #222;
+    --text-light: #fff;
+    --hover-dark: #333;
+    --border-light: rgba(255, 255, 255, 0.2);
+}
+
+/* General Styles */
+body {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Wrapper for Full Page Centering */
+.forgot-password-wrapper {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Container */
+.forgot-password-container {
+    background: #2c2c2c;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+/* Title */
+.forgot-password-container h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+/* Input Groups */
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+}
+
+.input-group input {
+    width: 80%;
+    padding: 12px 40px;
+    background: #444;
+    border: 1px solid var(--border-light);
+    color: var(--text-light);
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px var(--primary-color);
+    outline: none;
+}
+
+/* Reset Button */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: black;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #e6b800;
+    transform: scale(1.05);
+}
+
+/* Back to Login */
+p {
+    margin-top: 15px;
+}
+
+p a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .forgot-password-container {
+        width: 90%;
+    }
+}

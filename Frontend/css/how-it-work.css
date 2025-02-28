@@ -1,0 +1,148 @@
+/* Global Reset */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: white;
+    text-align: center;
+}
+
+/* Header Section */
+.how-header {
+    background: #ffcc00;
+    color: black;
+    padding: 40px 20px;
+}
+
+.how-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.how-header p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* Steps Section */
+
+/* Step Icons */
+.step-icon {
+    font-size: 50px;
+    color: #ffcc00;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect for Steps */
+.step:hover .step-icon {
+    transform: scale(1.2);
+    color: #ffffff;
+}
+
+/* Adjust Step Section */
+.step {
+    background: #222;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(255, 204, 0, 0.4);
+}
+
+.step h2 {
+    color: #ffcc00;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 16px;
+    opacity: 0.85;
+    color: #ddd;
+}
+
+
+.how-it-works {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 50px 10%;
+}
+
+.step {
+    background: #222;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.step:hover {
+    transform: scale(1.05);
+}
+
+.step img {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+.step h2 {
+    color: #ffcc00;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+/* Call-to-Action */
+.how-cta {
+    background: #ffcc00;
+    color: black;
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+
+.how-cta h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.cta-btn {
+    background: black;
+    color: #ffcc00;
+    padding: 12px 25px;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.cta-btn:hover {
+    background: white;
+    color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .how-it-works {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step {
+        max-width: 80%;
+    }
+}

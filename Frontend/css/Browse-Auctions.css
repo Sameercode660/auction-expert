@@ -1,0 +1,898 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #000000;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #1a1a1a;
+    /* Dark Background */
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.navbar .logo i {
+    color: #ffcc00;
+    margin-right: 8px;
+}
+
+/* Navbar Links */
+.navbar-links {
+    display: flex;
+    list-style-type: none;
+    gap: 30px;
+}
+
+.navbar-links li a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+    background-color: #ffcc00;
+    color: #222;
+}
+
+/* Navbar Buttons */
+.navbar-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar-buttons .login-btn,
+.navbar-buttons .signup-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.navbar-buttons .login-btn {
+    background-color: transparent;
+    color: #ffcc00;
+    border: 1px solid #ffcc00;
+}
+
+.navbar-buttons .signup-btn {
+    background-color: #ffcc00;
+    color: #222;
+}
+
+.navbar-buttons .login-btn:hover {
+    background-color: #ffcc00;
+    color: #222;
+}
+
+.navbar-buttons .signup-btn:hover {
+    background-color: #e6b800;
+}
+
+/* Mobile Menu */
+.mobile-menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    display: none;
+    background-color: #222;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    padding: 50px 30px;
+}
+
+.mobile-navbar-links {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.mobile-navbar-links li {
+    margin: 15px 0;
+}
+
+.mobile-navbar-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px;
+    display: block;
+    transition: 0.3s ease;
+}
+
+.mobile-navbar-links li a:hover {
+    background-color: #ffcc00;
+    color: #222;
+}
+
+/* Mobile Button Styles */
+.mobile-login-btn,
+.mobile-signup-btn {
+    background-color: #ffcc00;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    color: #222;
+    display: block;
+    margin-top: 20px;
+}
+
+.mobile-login-btn:hover,
+.mobile-signup-btn:hover {
+    background-color: #e6b800;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+    }
+
+    .navbar-buttons {
+        display: none;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 10%;
+    background: url('/Frontend/img/Auction_bg.jpg') no-repeat center center/cover;
+    height: 90vh;
+}
+
+/* Hero Content */
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.hero-content .gold-text {
+    color: #ffcc00;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+/* Countdown Timer */
+.countdown-container {
+    margin: 20px 0;
+}
+
+.countdown-container h3 {
+    font-size: 20px;
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+.countdown-timer {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.time-box {
+    background: #222;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 70px;
+}
+
+.time-box span {
+    display: block;
+    font-size: 30px;
+    color: #ffcc00;
+}
+
+/* Buttons */
+.hero-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.bid-now {
+    background: #ffcc00;
+    color: #222;
+}
+
+.join-now {
+    background: transparent;
+    color: #ffcc00;
+    border: 2px solid #ffcc00;
+}
+
+.bid-now:hover {
+    background: #e6b800;
+}
+
+.join-now:hover {
+    background: #ffcc00;
+    color: #222;
+}
+
+/* Hero Image */
+.hero-image {
+    max-width: 45%;
+}
+
+.hero-image img {
+    width: 100%;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Floating Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding: 60px 5%;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-image {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    .countdown-timer {
+        justify-content: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+/* Filter & Search Section */
+.filter-search {
+    background: url('/Frontend/img/640px-A_black_image.jpg') no-repeat center center/cover;
+    padding: 30px 10%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Search Bar */
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 2px solid #ffcc00;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+    outline: none;
+}
+
+.search-container i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffcc00;
+}
+
+/* Filters */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-box label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 5px;
+}
+
+.filter-box select,
+.filter-box input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ffcc00;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+    width: 200px;
+}
+
+/* Price Value */
+#price-value {
+    font-size: 16px;
+    color: #ffcc00;
+    margin-top: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .filter-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter-box select,
+    .filter-box input {
+        width: 100%;
+    }
+}
+
+/* Live Auctions Section */
+.live-auctions {
+    text-align: center;
+    padding: 40px 10%;
+}
+
+.live-auctions h2 {
+    font-size: 32px;
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+/* Auction Grid */
+.auction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Auction Items */
+.auction-item {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ffcc00;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.auction-item:hover {
+    transform: scale(1.05);
+}
+
+.auction-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.auction-item h3 {
+    font-size: 20px;
+    margin: 15px 0;
+    color: #ffcc00;
+}
+
+.current-bid {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.bid-amount {
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+.time-remaining {
+    font-size: 16px;
+    color: #ffcc00;
+}
+
+.timer {
+    font-weight: bold;
+}
+
+/* Bid Button */
+.bid-button {
+    margin-top: 15px;
+    background: #ffcc00;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.bid-button:hover {
+    background: #e6b800;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .auction-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Trending Auctions Section */
+.trending-auctions {
+    text-align: center;
+    padding: 40px 10%;
+}
+
+.trending-auctions h2 {
+    font-size: 32px;
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+/* Auction Slider */
+.auction-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auction-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    max-width: 800px;
+}
+
+.auction-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Auction Items */
+.auction-item {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ffcc00;
+    text-align: center;
+    min-width: 300px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.auction-item:hover {
+    transform: scale(1.05);
+}
+
+.auction-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.auction-item h3 {
+    font-size: 20px;
+    margin: 15px 0;
+    color: #ffcc00;
+}
+
+.current-bid {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.bid-amount {
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+.time-remaining {
+    font-size: 16px;
+    color: #ffcc00;
+}
+
+.timer {
+    font-weight: bold;
+}
+
+/* Navigation Buttons */
+.prev-btn,
+.next-btn {
+    background: #ffcc00;
+    color: #000;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background 0.3s;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    background: #e6b800;
+}
+
+/* Bid Button */
+.bid-button {
+    margin-top: 15px;
+    background: #ffcc00;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.bid-button:hover {
+    background: #e6b800;
+}
+
+/* Upcoming Auctions Section */
+.upcoming-auctions {
+    text-align: center;
+    padding: 40px 10%;
+}
+
+.upcoming-auctions h2 {
+    font-size: 32px;
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+/* Auction Grid */
+.auction-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Auction Cards */
+.auction-card {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ffcc00;
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.auction-card:hover {
+    transform: scale(1.05);
+}
+
+.auction-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.auction-card h3 {
+    font-size: 20px;
+    margin: 15px 0;
+    color: #ffcc00;
+}
+
+.start-price {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.start-price span {
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+.auction-start {
+    font-size: 16px;
+    color: #ffcc00;
+}
+
+.countdown {
+    font-weight: bold;
+}
+
+/* Notify Button */
+.notify-button {
+    margin-top: 15px;
+    background: #ffcc00;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.notify-button:hover {
+    background: #e6b800;
+}
+
+/* CTA Section */
+.cta-section {
+    background: url('../images/cta-bg.jpg') no-repeat center center/cover;
+    text-align: center;
+    padding: 80px 10%;
+    color: #fff;
+    position: relative;
+}
+
+/* Overlay Effect */
+.cta-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+/* Content */
+.cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: auto;
+}
+
+.cta-content h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 15px;
+}
+
+.cta-content p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+/* Buttons */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.primary {
+    background: #ffcc00;
+    color: #000;
+}
+
+.primary:hover {
+    background: #e6b800;
+}
+
+.secondary {
+    background: transparent;
+    color: #ffcc00;
+    border: 2px solid #ffcc00;
+}
+
+.secondary:hover {
+    background: #ffcc00;
+    color: #000;
+}
+
+/* Footer Section */
+.footer-section {
+    background-color: #222;
+    color: #fff;
+    padding: 40px 10%;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Footer Container */
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.navbar .logo i {
+    color: #ffcc00;
+    margin-right: 8px;
+}
+
+/* Footer Links */
+.footer-links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 15px;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Footer Social Media */
+.footer-social {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-social .social-icon {
+    color: #fff;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.footer-social .social-icon:hover {
+    color: #ffcc00;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    background-color: #111;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 0 20px;
+    }
+
+    .footer-links ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .footer-links ul li {
+        margin: 5px;
+    }
+
+    .footer-social {
+        gap: 15px;
+    }
+}

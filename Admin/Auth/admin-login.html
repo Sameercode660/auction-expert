@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - AuctionXpert</title>
+    <link rel="stylesheet" href="/Admin/css/admin-login.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="login-wrapper">
+        <div class="login-container">
+            <h2><i class="fa-solid fa-user-shield"></i> Admin Login</h2>
+            <form id="adminLoginForm">
+                <!-- Username Field -->
+                <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="username" placeholder="Admin Username" required>
+                </div>
+
+                <!-- Password Field with Toggle -->
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <i class="fa-solid fa-eye toggle-password" onclick="togglePassword()"></i>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit">Login <i class="fa-solid fa-arrow-right"></i></button>
+
+                <!-- Forgot Password -->
+                <p><a href="#">Forgot Password?</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="/Admin/js/admin-login.js"></script>
+</body>
+</html>

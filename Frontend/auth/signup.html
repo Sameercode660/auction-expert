@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuctionXpert - Sign Up</title>
+    <link rel="stylesheet" href="/Frontend/css/signup.css">
+    <script defer src="/Frontend/js/signup.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+    <div class="signup-container">
+        <div class="signup-box">
+            <h2>Create Your Account</h2>
+            <p>Join us today to start bidding on exclusive auctions.</p>
+
+            <div id="signupForm">
+                <!-- Full Name -->
+                <div class="input-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" placeholder="Enter your full name" required>
+                </div>
+
+                <!-- Email -->
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+
+                <!-- Password -->
+                <div class="input-group password-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                    <i class="fa fa-eye" id="togglePassword"></i>
+                    <div id="password-strength" class="strength-meter"></div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="input-group password-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                </div>
+
+                <div class="terms-checkbox">
+                    <label><input type="checkbox" required> I agree to the <a href="#">Terms and Conditions</a></label>
+                </div>
+
+                <button class="signup-btn">Sign Up</button>
+
+                <p class="login-link">Already have an account? <a href="/Frontend/auth/login.html">Login</a></p>
+            </form>
+        </div>
+    </div>
+    <script>
+        const name = document.querySelector('#fullname')
+        const email = document.querySelector('#email')
+        const password = document.querySelector('#password')
+        const confirmPassword = document.querySelector('#confirm-password')
+        const submitButton = document.querySelector('.signup-btn')
+
+        submitButton.addEventListener('click', handleSignUp)
+
+        async function handleSignUp() {
+            try {
+
+                submitButton.innerHTML = 'loading...'
+                if(!name.value || !email.value || !password.value || !confirmPassword.value) {
+                    alert("Anyone field is empty")
+                    return;
+                }
+
+                const data = {
+                    name: name.value,
+                    email: email.value,
+                    password: password.value,
+                }
+
+                const response = await axios.post('http://localhost:3000/api/auth/signup', data)
+
+                console.log(response)
+
+                if(response.data.status == true) {
+                    window.location.href = '/Frontend'
+                    localStorage.setItem('isLogin', 'true')
+                    localStorage.setItem("name", response.data.data.name)
+                    localStorage.setItem("email", response.data.data.email)
+                } else {
+                    alert(response.data.message)
+                    localStorage.setItem('isLogin', 'false')
+                    localStorage.setItem("name", "null")
+                    localStorage.setItem("email", "null")
+                }
+            } catch (error) {
+                console.log(error)
+                alert('Unable to login')
+            } finally {
+                submitButton.innerHTML = "Sign Up"
+            }
+        }
+    </script>
+</body>
+</html>

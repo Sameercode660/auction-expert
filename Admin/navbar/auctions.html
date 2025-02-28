@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Auctions | AuctionXpert</title>
+    <link rel="stylesheet" href="/Admin/css/auctions.css">
+    <script src="/Admin/js/auctions.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Manage Auctions</h1>
+        <button class="add-auction-btn" onclick="openModal()">+ Add Auction</button>
+    </header>
+
+    <!-- Auctions Table -->
+    <section class="auction-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Item</th>
+                    <th>Starting Price</th>
+                    <th>Current Bid</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="auctionTableBody">
+                <!-- Dynamic rows inserted via JS -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Modal (Add/Edit Auction) -->
+    <div class="modal" id="auctionModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Add Auction</h2>
+            <form id="auctionForm">
+                <label>Item Name:</label>
+                <input type="text" id="itemName" required>
+
+                <label>Starting Price (₹):</label>
+                <input type="number" id="startingPrice" required>
+
+                <label>Status:</label>
+                <select id="status">
+                    <option value="Live">Live</option>
+                    <option value="Upcoming">Upcoming</option>
+                    <option value="Closed">Closed</option>
+                </select>
+
+                <button type="submit">Save Auction</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

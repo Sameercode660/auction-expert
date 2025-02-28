@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Manage Users</title>
+    <link rel="stylesheet" href="/Admin/css/users.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Users Page Container -->
+    <section class="users-section">
+        <h2><i class="fa-solid fa-users"></i> Manage Users</h2>
+
+        <!-- Search & Filter -->
+        <div class="user-controls">
+            <input type="text" id="searchUser" placeholder="Search Users..." onkeyup="searchUsers()">
+            <select id="filterRole" onchange="filterUsers()">
+                <option value="all">All Roles</option>
+                <option value="admin">Admin</option>
+                <option value="bidder">Bidder</option>
+                <option value="seller">Seller</option>
+            </select>
+        </div>
+
+        <!-- Users Table -->
+        <table class="users-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="usersList">
+                <tr>
+                    <td>1</td>
+                    <td>Ram Lal</td>
+                    <td>Ramlal@example.com</td>
+                    <td>Bidder</td>
+                    <td><span class="active">Active</span></td>
+                    <td>
+                        <button class="edit-btn"><i class="fa-solid fa-pen"></i></button>
+                        <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                        <button class="block-btn"><i class="fa-solid fa-ban"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Sam Ambani</td>
+                    <td>samambani@example.com</td>
+                    <td>Seller</td>
+                    <td><span class="inactive">Inactive</span></td>
+                    <td>
+                        <button class="edit-btn"><i class="fa-solid fa-pen"></i></button>
+                        <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                        <button class="block-btn"><i class="fa-solid fa-ban"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script src="/Admin/js/users.js"></script>
+</body>
+</html>

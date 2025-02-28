@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuctionXpert Admin Dashboard</title>
+    <link rel="stylesheet" href="/Admin/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Admin Dashboard Header -->
+    <header class="admin-header">
+        <div class="logo">
+            <i class="fa-solid fa-gavel"></i>
+            <span>AuctionXpert Admin</span>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search..." id="searchInput">
+            <button><i class="fa-solid fa-search"></i></button>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="/Admin/Dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                <li><a href="/Admin/navbar/auctions.html"><i class="fa-solid fa-hammer"></i> Auctions</a></li>
+                <li><a href="/Admin/navbar/users.html"><i class="fa-solid fa-users"></i> Users</a></li>
+                <li><a href="/Admin/navbar/reports.html"><i class="fa-solid fa-file-alt"></i> Reports</a></li>
+            </ul>
+        </nav>
+
+        <!-- Admin Profile Dropdown -->
+        <div class="profile-dropdown">
+            <button class="profile-btn">
+                <i class="fa-solid fa-user-circle"></i>
+                Admin
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#"><i class="fa-solid fa-user"></i> Profile</a></li>
+                <li><a href="#"><i class="fa-solid fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Admin Hero Section -->
+    <section class="admin-hero">
+        <div class="hero-content">
+            <h1>Welcome, <span>Admin</span> 👋</h1>
+            <p>Manage auctions, track bids, and oversee transactions effortlessly.</p>
+        </div>
+
+        <!-- Admin Dashboard Stats -->
+        <div class="stats-container">
+            <div class="stat-box">
+                <i class="fa-solid fa-gavel"></i>
+                <h3 id="total-auctions">0</h3>
+                <p>Total Auctions</p>
+            </div>
+            <div class="stat-box">
+                <i class="fa-solid fa-users"></i>
+                <h3 id="total-users">0</h3>
+                <p>Registered Users</p>
+            </div>
+            <div class="stat-box">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <h3 id="total-bids">0</h3>
+                <p>Total Bids</p>
+            </div>
+            <div class="stat-box">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3 id="total-revenue">₹0</h3>
+                <p>Total Revenue</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Auction Monitoring Section -->
+    <section class="live-auction-monitoring">
+        <h2><i class="fa-solid fa-gavel"></i> Live Auction Monitoring</h2>
+        <p>Track live bids and manage ongoing auctions in real time.</p>
+
+        <div class="auction-list">
+            <!-- Auction Item 1 -->
+            <div class="auction-item">
+                <img src="/Frontend/img/Rolex Submariner.jpg" alt="Auction Item">
+                <div class="item-details">
+                    <h3>Luxury Rolex Watch</h3>
+                    <p><i class="fa-solid fa-tag"></i> Current Bid: <span class="current-bid">₹75,000</span></p>
+                    <p><i class="fa-solid fa-clock"></i> Time Left: <span class="time-left">05:12</span></p>
+                    <div class="admin-controls">
+                        <button class="pause-auction"><i class="fa-solid fa-pause"></i> Pause</button>
+                        <button class="resume-auction"><i class="fa-solid fa-play"></i> Resume</button>
+                        <button class="end-auction"><i class="fa-solid fa-stop"></i> End</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Auction Item 2 -->
+            <div class="auction-item">
+                <img src="/Frontend/img/Vintage_Car.jpg" alt="Auction Item">
+                <div class="item-details">
+                    <h3>Vintage Car Model</h3>
+                    <p><i class="fa-solid fa-tag"></i> Current Bid: <span class="current-bid">₹3,50,000</span></p>
+                    <p><i class="fa-solid fa-clock"></i> Time Left: <span class="time-left">12:45</span></p>
+                    <div class="admin-controls">
+                        <button class="pause-auction"><i class="fa-solid fa-pause"></i> Pause</button>
+                        <button class="resume-auction"><i class="fa-solid fa-play"></i> Resume</button>
+                        <button class="end-auction"><i class="fa-solid fa-stop"></i> End</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manage Users Section -->
+    <section class="manage-users">
+        <h2><i class="fa-solid fa-users"></i> Manage Users</h2>
+        <p>View and manage registered users on AuctionXpert.</p>
+
+        <!-- Search & Filter Bar -->
+        <div class="user-search">
+            <input type="text" id="searchUser" placeholder="Search users...">
+            <select id="filterRole">
+                <option value="all">All Roles</option>
+                <option value="admin">Admin</option>
+                <option value="buyer">Buyer</option>
+                <option value="seller">Seller</option>
+            </select>
+        </div>
+
+        <!-- User Table -->
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userList">
+                <tr>
+                    <td>Omkar Kadam</td>
+                    <td>Omkar@example.com</td>
+                    <td>Buyer</td>
+                    <td><span class="status active">Active</span></td>
+                    <td>
+                        <button class="edit-user"><i class="fa-solid fa-pen"></i></button>
+                        <button class="block-user"><i class="fa-solid fa-ban"></i></button>
+                        <button class="delete-user"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>jane@example.com</td>
+                    <td>Seller</td>
+                    <td><span class="status inactive">Inactive</span></td>
+                    <td>
+                        <button class="edit-user"><i class="fa-solid fa-pen"></i></button>
+                        <button class="block-user"><i class="fa-solid fa-ban"></i></button>
+                        <button class="delete-user"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Manage Auctions Section -->
+    <section class="manage-auctions">
+        <h2><i class="fa-solid fa-gavel"></i> Manage Auctions</h2>
+        <p>View and control all auctions listed on AuctionXpert.</p>
+
+        <!-- Search & Filter Bar -->
+        <div class="auction-search">
+            <input type="text" id="searchAuction" placeholder="Search auctions...">
+            <select id="filterStatus">
+                <option value="all">All Statuses</option>
+                <option value="live">Live</option>
+                <option value="closed">Closed</option>
+                <option value="upcoming">Upcoming</option>
+            </select>
+        </div>
+
+        <!-- Auction Table -->
+        <table class="auction-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Starting Price</th>
+                    <th>Current Bid</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="auctionList">
+                <tr>
+                    <td>Rolex Watch</td>
+                    <td>₹50,000</td>
+                    <td>₹75,000</td>
+                    <td><span class="status live">Live</span></td>
+                    <td>
+                        <button class="edit-auction"><i class="fa-solid fa-pen"></i></button>
+                        <button class="close-auction"><i class="fa-solid fa-door-closed"></i></button>
+                        <button class="delete-auction"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Vintage Car</td>
+                    <td>₹5,00,000</td>
+                    <td>₹7,50,000</td>
+                    <td><span class="status upcoming">Upcoming</span></td>
+                    <td>
+                        <button class="edit-auction"><i class="fa-solid fa-pen"></i></button>
+                        <button class="close-auction"><i class="fa-solid fa-door-closed"></i></button>
+                        <button class="delete-auction"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Bidding & Transaction History Section -->
+    <section class="bidding-history">
+        <h2><i class="fa-solid fa-file-invoice-dollar"></i> Bidding & Transaction History</h2>
+        <p>Track all bidding activities and transaction records.</p>
+
+        <!-- Search & Filter Bar -->
+        <div class="history-search">
+            <input type="text" id="searchHistory" placeholder="Search by bidder name or item...">
+            <select id="filterHistory">
+                <option value="all">All Transactions</option>
+                <option value="successful">Successful</option>
+                <option value="pending">Pending</option>
+                <option value="failed">Failed</option>
+            </select>
+        </div>
+
+        <!-- History Table -->
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Bidder</th>
+                    <th>Item</th>
+                    <th>Bid Amount</th>
+                    <th>Status</th>
+                    <th>Transaction Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="historyList">
+                <tr>
+                    <td>Rahul Sharma</td>
+                    <td>Luxury Watch</td>
+                    <td>₹1,20,000</td>
+                    <td><span class="status successful">Successful</span></td>
+                    <td>18 Feb 2025</td>
+                    <td>
+                        <button class="view-details"><i class="fa-solid fa-eye"></i></button>
+                        <button class="delete-transaction"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Aisha Khan</td>
+                    <td>Vintage Car</td>
+                    <td>₹5,50,000</td>
+                    <td><span class="status pending">Pending</span></td>
+                    <td>17 Feb 2025</td>
+                    <td>
+                        <button class="view-details"><i class="fa-solid fa-eye"></i></button>
+                        <button class="delete-transaction"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Reports & Analytics Section -->
+    <section class="reports-analytics">
+        <h2><i class="fa-solid fa-chart-line"></i> Reports & Analytics</h2>
+        <p>Analyze auction performance and bidding trends.</p>
+
+        <!-- Search & Filter Bar -->
+        <div class="reports-search">
+            <input type="text" id="searchReports" placeholder="Search reports...">
+            <select id="filterReports">
+                <option value="all">All Reports</option>
+                <option value="bidding">Bidding Activity</option>
+                <option value="revenue">Revenue</option>
+                <option value="users">User Engagement</option>
+            </select>
+        </div>
+
+        <!-- Reports List -->
+        <div class="reports-container">
+            <div class="report-card">
+                <i class="fa-solid fa-gavel"></i>
+                <h3>Bidding Activity</h3>
+                <p>Track the number of bids placed and active auctions.</p>
+                <button class="view-report">View Report</button>
+            </div>
+            <div class="report-card">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <h3>Revenue Report</h3>
+                <p>Monitor auction earnings and successful transactions.</p>
+                <button class="view-report">View Report</button>
+            </div>
+            <div class="report-card">
+                <i class="fa-solid fa-users"></i>
+                <h3>User Engagement</h3>
+                <p>Analyze bidder participation and account activity.</p>
+                <button class="view-report">View Report</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2><i class="fa-solid fa-bullhorn"></i> Manage Your Auctions Efficiently</h2>
+            <p>Take control of your auctions, monitor bids in real time, and analyze reports with ease.</p>
+            
+            <div class="cta-buttons">
+                <a href="/Admin/navbar/auctions.html" class="cta-btn primary"><i class="fa-solid fa-plus"></i> Add New Auction</a>
+                <a href="/Admin/navbar/reports.html" class="cta-btn secondary"><i class="fa-solid fa-chart-line"></i> View Reports</a>
+                <a href="/Admin/navbar/Monitor-Live-Bids.html" class="cta-btn primary"><i class="fa-solid fa-gavel"></i> Monitor Live Bids</a>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer Section -->
+     <footer class="admin-footer">
+        <div class="footer-container">
+            <!-- Footer Links -->
+            <div class="footer-links">
+                <a href="/Admin/Dashboard.html"><i class="fa-solid fa-home"></i> Dashboard</a>
+                <a href="/Admin/navbar/auctions.html"><i class="fa-solid fa-gavel"></i> Manage Auctions</a>
+                <a href="/Admin/navbar/users.html"><i class="fa-solid fa-users"></i> Manage Users</a>
+                <a href="/Admin/navbar/reports.html"><i class="fa-solid fa-chart-line"></i> Reports</a>
+                <a href="/Admin/navbar/settings.html"><i class="fa-solid fa-cogs"></i> Settings</a>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="footer-social">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+
+            <!-- Copyright Info -->
+            <div class="footer-copy">
+                <p>© 2025 AuctionXpert | All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="/Admin/js/dashboard.js"></script>
+</body>
+
+</html>

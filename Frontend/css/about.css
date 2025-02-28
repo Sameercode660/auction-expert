@@ -1,0 +1,176 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #111;
+    color: #ddd;
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #000;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ddd;
+    padding: 8px 15px;
+    transition: background 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+    background-color: #ffcc00;
+    color: #000;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.about-hero {
+    background: url('assets/images/about-hero.jpg') center/cover no-repeat;
+    text-align: center;
+    padding: 80px 20px;
+    color: #fff;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.about-hero h1 {
+    font-size: 48px;
+    color: #ffcc00;
+}
+
+.about-hero p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* Section Styles */
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.icon {
+    font-size: 50px;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+.content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 28px;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+
+cta-section p,h3 {
+    color: #000; /* Black text */
+    font-size: 20px; 
+    font-weight: bold; 
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+/* Team Section */
+.team-section {
+    background-color: #222;
+    padding: 40px 20px;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.member {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    transition: transform 0.3s;
+}
+
+.member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
+}
+
+.member i {
+    font-size: 40px;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+/* Call-to-Action */
+.cta-section {
+    background-color: #ffcc00;
+    color: #000;
+    padding: 30px 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #000;
+    color: #ffcc00;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background: #444;
+}
+
+/* Footer */
+.footer {
+    background: #000;
+    padding: 20px;
+    text-align: center;
+    color: #aaa;
+}
+
+.social-icons a {
+    color: #ffcc00;
+    margin: 0 10px;
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+

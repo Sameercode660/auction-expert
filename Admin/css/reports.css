@@ -1,0 +1,145 @@
+/* Theme Colors */
+:root {
+    --primary-color: #ffcc00;
+    --background-dark: #222;
+    --text-light: #fff;
+    --hover-dark: #333;
+    --border-light: rgba(255, 255, 255, 0.2);
+}
+
+/* General Styles */
+body {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Wrapper */
+.reports-wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header */
+.reports-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.reports-header h2 {
+    color: var(--primary-color);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    outline: none;
+    width: 200px;
+}
+
+.search-bar button {
+    padding: 10px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+}
+
+/* Summary Cards */
+.report-summary {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.summary-card {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+}
+
+.summary-card i {
+    font-size: 30px;
+    color: var(--primary-color);
+}
+
+.summary-card h3 {
+    margin-top: 10px;
+}
+
+/* Filter Section */
+.filter-section {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.filter-section select {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #444;
+    color: var(--text-light);
+}
+
+/* Reports Table */
+.reports-table {
+    margin-top: 20px;
+    background: #333;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-light);
+}
+
+thead {
+    background: var(--primary-color);
+    color: black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.view-btn {
+    padding: 8px 12px;
+    background: var(--primary-color);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .reports-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .report-summary {
+        flex-direction: column;
+        align-items: center;
+    }
+}
