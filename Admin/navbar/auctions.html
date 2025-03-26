@@ -5,8 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Auctions | AuctionXpert</title>
     <link rel="stylesheet" href="/Admin/css/auctions.css">
-    <script src="/Admin/js/auctions.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        /* Modal specific styles */
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 90%;
+            max-width: 500px;
+            margin: 50px auto;
+        }
+
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .modal-content label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .modal-content input,
+        .modal-content textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .modal-content textarea#description {
+            min-height: 100px;
+            resize: vertical; /* Allows vertical resizing only */
+            line-height: 1.5;
+            font-family: Arial, sans-serif;
+        }
+
+        .modal-content button[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .modal-content button[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .close-btn {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .close-btn:hover {
+            color: #000;
+        }
+    </style>
 </head>
 <body>
 
@@ -38,26 +103,72 @@
     <!-- Modal (Add/Edit Auction) -->
     <div class="modal" id="auctionModal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <span class="close-btn" onclick="closeModal()">×</span>
             <h2 id="modalTitle">Add Auction</h2>
             <form id="auctionForm">
+                <label>Image URL:</label>
+                <input type="text" id="image" required placeholder="Enter image URL">
+
                 <label>Item Name:</label>
-                <input type="text" id="itemName" required>
+                <input type="text" id="name" required placeholder="Enter item name">
 
-                <label>Starting Price (₹):</label>
-                <input type="number" id="startingPrice" required>
+                <label>Description:</label>
+                <textarea id="description" required placeholder="Enter item description"></textarea>
 
-                <label>Status:</label>
-                <select id="status">
-                    <option value="Live">Live</option>
-                    <option value="Upcoming">Upcoming</option>
-                    <option value="Closed">Closed</option>
-                </select>
+                <label>Starting Amount (₹):</label>
+                <input type="number" id="amount" required placeholder="Enter starting amount" step="0.01">
 
                 <button type="submit">Save Auction</button>
             </form>
         </div>
     </div>
 
+    <script>
+        // Open modal
+        function openModal() {
+            document.getElementById('auctionModal').style.display = 'block';
+            document.getElementById('auctionForm').reset();
+            document.getElementById('modalTitle').textContent = 'Add Auction';
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('auctionModal').style.display = 'none';
+        }
+
+        // Handle form submission
+        document.getElementById('auctionForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const auctionData = {
+                image: document.getElementById('image').value,
+                name: document.getElementById('name').value,
+                description: document.getElementById('description').value,
+                amount: parseFloat(document.getElementById('amount').value)
+            };
+
+            try {
+                const response = await axios.post('http://localhost:3000/api/bid/add-bid-in-auction', auctionData);
+                
+                if (response.data.status) {
+                    alert('Auction added successfully!');
+                    closeModal();
+                } else {
+                    throw new Error(response.data.message);
+                }
+            } catch (error) {
+                console.error('Error adding auction:', error);
+                alert(`Failed to add auction: ${error.message || 'Unknown error'}`);
+            }
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('auctionModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>

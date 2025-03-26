@@ -1,238 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AuctionXpert - Start Bidding</title>
-    <link rel="stylesheet" href="/Frontend/css/Start-Bidding.css">
+    <link rel="stylesheet" href="/Frontend/css/Start-Bidding.css" />
     <script>
-        if(localStorage.getItem("isLogin") != "true") {
-            alert('Please Login first')
-            window.location.href = '/Frontend/auth/login.html'
-        }
+      if (localStorage.getItem("isLogin") != "true") {
+        alert("Please Login first");
+        window.location.href = "/Frontend/auth/login.html";
+      }
     </script>
     <script src="/Frontend/js/Start-Bidding.js" defer></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <!-- Navbar Section -->
     <nav class="navbar">
-        <div class="logo">AuctionXpert</div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="/Frontend/index.html">Home</a></li>
-            <li><a href="/Frontend/nav/Browse-Auctions.html">Browse Auctions</a></li>
-            <li><a href="/Frontend/nav/Start-Bidding.html" class="active">Start Bidding</a></li>
-            <li><a href="/Frontend/nav/mybid.html">My Bids</a></li>
-            <li><a href="/Frontend/nav/contact.html">Contact</a></li>
-        </ul>
-        <div class="profile-dropdown">
-            <button class="profile-btn" id="profileBtn">Profile ▼</button>
-            <div class="dropdown-content" id="dropdownContent">
-                <a href="#">My Account</a>
-                <a href="#">Settings</a>
-                <a href="#">Logout</a>
-            </div>
+      <div class="logo">AuctionXpert</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/Frontend/index.html">Home</a></li>
+        <li>
+          <a href="/Frontend/nav/Browse-Auctions.html">Browse Auctions</a>
+        </li>
+        <li>
+          <a href="/Frontend/nav/Start-Bidding.html" class="active"
+            >Start Bidding</a
+          >
+        </li>
+        <li><a href="/Frontend/nav/mybid.html">My Bids</a></li>
+        <li><a href="/Frontend/nav/contact.html">Contact</a></li>
+      </ul>
+      <div class="profile-dropdown">
+        <button class="profile-btn" id="profileBtn">Profile ▼</button>
+        <div class="dropdown-content" id="dropdownContent">
+          <a href="#">My Account</a>
+          <a href="#">Settings</a>
+          <a href="#">Logout</a>
         </div>
-        <div class="menu-toggle" id="menuToggle">&#9776;</div>
+      </div>
+      <div class="menu-toggle" id="menuToggle">&#9776;</div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Start Bidding and Win Big!</h1>
-            <p>Join thousands of auction enthusiasts and get exclusive access to the best deals.</p>
-            <a href="/Frontend/nav/Browse-Auctions.html" class="cta-button">Browse Auctions</a>
-        </div>
-        <div class="hero-image">
-            <img src="/Frontend/img/RR_PHANTOM.jpg" alt="Hero Image">
-        </div>
+      <div class="hero-content">
+        <h1>Start Bidding and Win Big!</h1>
+        <p>
+          Join thousands of auction enthusiasts and get exclusive access to the
+          best deals.
+        </p>
+        <a href="/Frontend/nav/Browse-Auctions.html" class="cta-button"
+          >Browse Auctions</a
+        >
+      </div>
+      <div class="hero-image">
+        <img src="/Frontend/img/RR_PHANTOM.jpg" alt="Hero Image" />
+      </div>
     </section>
 
     <!-- Filter & Search Bar Section -->
     <section class="filter-search">
-        <div class="search-container">
-            <input type="text" id="search-bar" placeholder="Search for auctions or items..." class="search-bar">
-            <button id="search-btn" class="search-btn">
-                <i class="fa fa-search"></i> Search
-            </button>
-        </div>
-        <div class="filter-container">
-            <select id="category" class="filter">
-                <option value="all">All Categories</option>
-                <option value="art">Art</option>
-                <option value="collectibles">Collectibles</option>
-                <option value="jewelry">Jewelry</option>
-                <option value="real-estate">Real Estate</option>
-                <option value="cars">Cars</option>
-            </select>
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-bar"
+          placeholder="Search for auctions or items..."
+          class="search-bar"
+        />
+        <button id="search-btn" class="search-btn">
+          <i class="fa fa-search"></i> Search
+        </button>
+      </div>
+      <div class="filter-container">
+        <select id="category" class="filter">
+          <option value="all">All Categories</option>
+          <option value="art">Art</option>
+          <option value="collectibles">Collectibles</option>
+          <option value="jewelry">Jewelry</option>
+          <option value="real-estate">Real Estate</option>
+          <option value="cars">Cars</option>
+        </select>
 
-            <select id="price-range" class="filter">
-                <option value="all">Price Range</option>
-                <option value="low">Below ₹10,000</option>
-                <option value="medium">₹10,000 - ₹50,000</option>
-                <option value="high">Above ₹50,000</option>
-            </select>
+        <select id="price-range" class="filter">
+          <option value="all">Price Range</option>
+          <option value="low">Below ₹10,000</option>
+          <option value="medium">₹10,000 - ₹50,000</option>
+          <option value="high">Above ₹50,000</option>
+        </select>
 
-            <select id="auction-type" class="filter">
-                <option value="all">Auction Type</option>
-                <option value="live">Live Auctions</option>
-                <option value="upcoming">Upcoming Auctions</option>
-                <option value="closed">Closed Auctions</option>
-            </select>
-        </div>
+        <select id="auction-type" class="filter">
+          <option value="all">Auction Type</option>
+          <option value="live">Live Auctions</option>
+          <option value="upcoming">Upcoming Auctions</option>
+          <option value="closed">Closed Auctions</option>
+        </select>
+      </div>
     </section>
 
     <!-- Live Auction Listings Section -->
     <section class="live-auctions">
-        <div class="container">
-            <h2>Live Auctions</h2>
-            <div class="auction-listings">
-                <div class="auction-item">
-                    <img src="/Frontend/img/Famous_Painting.jpg" alt="Auction Item 1" class="auction-img">
-                    <div class="auction-info">
-                        <h3>Vintage Painting</h3>
-                        <p class="auction-description">A beautiful vintage painting from the 18th century.</p>
-                        <p class="auction-price">Starting Bid: ₹30,000</p>
-                        <button class="bid-btn">Place Your Bid</button>
-                    </div>
-                </div>
-
-                <div class="auction-item">
-                    <img src="/Frontend/img/AntiqueJewelrySet.jpg" alt="Auction Item 2" class="auction-img">
-                    <div class="auction-info">
-                        <h3>Antique Jewelry Set</h3>
-                        <p class="auction-description">A rare antique jewelry set from the 19th century.</p>
-                        <p class="auction-price">Starting Bid: ₹50,000</p>
-                        <button class="bid-btn">Place Your Bid</button>
-                    </div>
-                </div>
-
-                <div class="auction-item">
-                    <img src="/Frontend/img/Vintage_Car.jpg" alt="Auction Item 3" class="auction-img">
-                    <div class="auction-info">
-                        <h3>Classic Car</h3>
-                        <p class="auction-description">A rare classic car in perfect condition.</p>
-                        <p class="auction-price">Starting Bid: ₹5,00,000</p>
-                        <button class="bid-btn">Place Your Bid</button>
-                    </div>
-                </div>
-
-                <div class="auction-item">
-                    <img src="/Frontend/img/Rolex Daytona Platinum.jpg" alt="Auction Item 4" class="auction-img">
-                    <div class="auction-info">
-                        <h3>Luxury Watch</h3>
-                        <p class="auction-description">A luxury watch with premium craftsmanship.</p>
-                        <p class="auction-price">Starting Bid: ₹2,00,000</p>
-                        <button class="bid-btn">Place Your Bid</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bidding Section -->
-    <section class="bidding-section">
-        <!-- Auction Item Card -->
-        <div class="auction-item">
-            <img src="/Frontend/img/VintagePainting.jpg" alt="Auction Item" class="auction-img">
-            <div class="auction-info">
-                <h3>Vintage Painting</h3>
-                <p class="auction-description">A beautiful vintage painting from the 18th century.</p>
-                <p class="auction-price">Starting Bid: ₹30,000</p>
-                <button class="bid-btn" id="placeBidBtn">Place Your Bid</button>
-            </div>
-        </div>
-        
+      <div class="container">
+        <h2>Live Auctions</h2>
+        <div class="auction-listings"></div>
+      </div>
     </section>
 
     <!-- Modal for Bidding -->
     <div id="bidModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeBtn">&times;</span>
-            <h2>Place Your Bid</h2>
-            <p class="modal-item-title">Vintage Painting</p>
-            <p class="modal-starting-bid">Starting Bid: ₹30,000</p>
+      <div class="modal-content">
+        <span class="close-btn" id="closeBtn">×</span>
+        <h2>Place Your Bid</h2>
+        <p class="modal-item-title"></p>
+        <p class="modal-starting-bid"></p>
 
-            <form id="bidForm">
-                <label for="bidAmount">Your Bid (in ₹):</label>
-                <input type="number" id="bidAmount" name="bidAmount" required placeholder="Enter your bid amount">
-                <button type="submit" class="submit-btn">Submit Bid</button>
-            </form>
+        <form id="bidForm">
+          <label for="bidAmount">Your Bid (in ₹):</label>
+          <input
+            type="number"
+            id="bidAmount"
+            name="bidAmount"
+            required
+            min="0"
+            step="1"
+            placeholder="Enter your bid amount"
+          />
+          <button type="submit" class="submit-btn">Submit Bid</button>
+        </form>
 
-            <p id="confirmationMessage" class="confirmation-message"></p>
-        </div>
+        <p id="confirmationMessage" class="confirmation-message"></p>
+      </div>
     </div>
 
     <!-- Bid History Section -->
     <section class="bid-history-section">
-        <div class="container">
-            <h2>Bid History</h2>
-            <p class="history-description">See the bids placed on this item by other users.</p>
-            
-            <table class="bid-history-table">
-                <thead>
-                    <tr>
-                        <th>Bidder</th>
-                        <th>Bid Amount (₹)</th>
-                        <th>Time</th>
-                    </tr>
-                </thead>
-                <tbody id="bidHistory">
-                    <!-- Rows will be inserted here dynamically -->
-                </tbody>
-            </table>
-        </div>
+      <div class="container">
+        <h2>Bid History</h2>
+        <p class="history-description">
+          See the bids placed on this item by other users.
+        </p>
+
+        <table class="bid-history-table">
+          <thead>
+            <tr>
+              <th>Bidder</th>
+              <th>Bid Amount (₹)</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="bidHistory">
+            <!-- Rows will be inserted here dynamically -->
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- Call-to-Action Section -->
-<section class="cta-section">
-    <div class="container">
+    <section class="cta-section">
+      <div class="container">
         <h2>Ready to Place Your Bid?</h2>
-        <p>Join the action and start bidding on your favorite items now! Don’t miss out on exclusive deals.</p>
-        <a href="/Frontend/nav/Start-Bidding.html" class="cta-button">Start Bidding</a>
-    </div>
-</section>
+        <p>
+          Join the action and start bidding on your favorite items now! Don’t
+          miss out on exclusive deals.
+        </p>
+        <a href="/Frontend/nav/Start-Bidding.html" class="cta-button"
+          >Start Bidding</a
+        >
+      </div>
+    </section>
 
-<!-- Footer Section -->
-<footer class="footer-section">
-    <div class="container">
+    <!-- Footer Section -->
+    <footer class="footer-section">
+      <div class="container">
         <div class="footer-content">
-            <!-- Column 1: About Us -->
-            <div class="footer-column">
-                <h3>About AuctionXpert</h3>
-                <p>Your ultimate platform for online auctions. Bid smart, win big!</p>
-            </div>
+          <!-- Column 1: About Us -->
+          <div class="footer-column">
+            <h3>About AuctionXpert</h3>
+            <p>
+              Your ultimate platform for online auctions. Bid smart, win big!
+            </p>
+          </div>
 
-            <!-- Column 2: Quick Links -->
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="/Frontend/nav/how-it-works.html">How It Works</a></li>
-                    <li><a href="/Frontend/nav/contact.html">Contact Us</a></li>
-                </ul>
-            </div>
+          <!-- Column 2: Quick Links -->
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li>
+                <a href="/Frontend/nav/how-it-works.html">How It Works</a>
+              </li>
+              <li><a href="/Frontend/nav/contact.html">Contact Us</a></li>
+            </ul>
+          </div>
 
-            <!-- Column 3: Follow Us -->
-            <div class="footer-column">
-                <h3>Follow Us</h3>
-                <ul class="social-links">
-                    <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> Facebook</a></li>
-                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
-                    
-                </ul>
-            </div>
+          <!-- Column 3: Follow Us -->
+          <div class="footer-column">
+            <h3>Follow Us</h3>
+            <ul class="social-links">
+              <li>
+                <a href="#" target="_blank"
+                  ><i class="fa fa-facebook"></i> Facebook</a
+                >
+              </li>
+              <li>
+                <a href="#" target="_blank"
+                  ><i class="fa fa-twitter"></i> Twitter</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-        
+
         <!-- Footer Bottom -->
         <div class="footer-bottom">
-            <p>&copy; 2025 AuctionXpert. All Rights Reserved.</p>
+          <p>&copy; 2025 AuctionXpert. All Rights Reserved.</p>
         </div>
-    </div>
-</footer>
+      </div>
+    </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const auctionListContainer =
+          document.querySelector(".auction-listings");
+        const bidModal = document.getElementById("bidModal");
+        const closeBtn = document.getElementById("closeBtn");
+        const bidForm = document.getElementById("bidForm");
+        const confirmationMessage = document.getElementById(
+          "confirmationMessage"
+        );
+        const bidAmountInput = document.getElementById("bidAmount");
 
-</body>
+        // API endpoints
+        const FETCH_API_URL = "http://localhost:3000/api/bid/fetch-bid";
+        const SUBMIT_API_URL = "http://localhost:3000/api/bid/place-bid";
 
+        // Fetch auctions
+        async function fetchAuctions() {
+          try {
+            const response = await axios.post(FETCH_API_URL);
+            const auctions = response.data.data;
+            renderAuctions(auctions);
+          } catch (error) {
+            console.error("Error fetching auction data:", error);
+            auctionListContainer.innerHTML =
+              "<p class='error-message'>Failed to load auctions. Please try again later.</p>";
+          }
+        }
+
+        // Render auctions
+        function renderAuctions(auctions) {
+          auctionListContainer.innerHTML = "";
+          auctions.forEach((auction) => {
+            const auctionItem = `
+              <div class="auction-item" data-id="${auction.id}">
+                <img src="${
+                  auction.image || "/Frontend/img/default.jpg"
+                }" alt="${auction.name}" class="auction-img" />
+                <div class="auction-info">
+                  <h3>${auction.name}</h3>
+                  <p class="auction-description">${
+                    auction.description || "No description available"
+                  }</p>
+                  <p class="auction-price">Current Bid: ₹${auction.amount.toFixed(
+                    2
+                  )}</p>
+                  <button class="bid-btn">Place Your Bid</button>
+                </div>
+              </div>
+            `;
+            auctionListContainer.insertAdjacentHTML("beforeend", auctionItem);
+          });
+
+          // Add event listeners to bid buttons
+          document.querySelectorAll(".bid-btn").forEach((button) => {
+            button.addEventListener("click", handleBidClick);
+          });
+        }
+
+        // Handle bid button click
+        function handleBidClick(event) {
+          if (localStorage.getItem("isLogin") !== "true") {
+            alert("Please Login first");
+            window.location.href = "/Frontend/auth/login.html";
+            return;
+          }
+
+          const auctionItem = event.target.closest(".auction-item");
+          const itemName = auctionItem.querySelector("h3").textContent;
+          const currentBid = auctionItem
+            .querySelector(".auction-price")
+            .textContent.replace("Current Bid: ₹", "");
+
+          // Update modal content
+          document.querySelector(".modal-item-title").textContent = itemName;
+          document.querySelector(
+            ".modal-starting-bid"
+          ).textContent = `Current Bid: ₹${currentBid}`;
+
+          // Reset input and show modal
+          bidAmountInput.value = "";
+          bidModal.style.display = "block";
+        }
+
+        // Close modal
+        closeBtn.addEventListener("click", () => {
+          bidModal.style.display = "none";
+          confirmationMessage.textContent = "";
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener("click", (event) => {
+          if (event.target === bidModal) {
+            bidModal.style.display = "none";
+            confirmationMessage.textContent = "";
+          }
+        });
+
+        // Handle bid submission
+        bidForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          // Get and validate bid amount
+          const bidAmountStr = bidAmountInput.value.trim();
+          const bidAmount = Number(bidAmountStr);
+
+          if (!bidAmountStr || isNaN(bidAmount) || bidAmount <= 0) {
+            confirmationMessage.style.color = "red";
+            confirmationMessage.textContent = "Please enter a valid bid amount";
+            return;
+          }
+
+          const itemName =
+            document.querySelector(".modal-item-title").textContent;
+          const customerName = localStorage.getItem("name") || "Anonymous";
+          const email = localStorage.getItem("email") || "user@example.com";
+
+          // Get current bid for validation
+          const currentBidStr = document
+            .querySelector(".modal-starting-bid")
+            .textContent.replace("Current Bid: ₹", "");
+          const currentBid = Number(currentBidStr);
+
+          if (bidAmount <= currentBid) {
+            confirmationMessage.style.color = "red";
+            confirmationMessage.textContent =
+              "Bid must be higher than current bid";
+            return;
+          }
+
+          const bidData = {
+            customerName,
+            name: itemName,
+            email,
+            amount: bidAmount,
+          };
+
+          try {
+            const response = await axios.post(SUBMIT_API_URL, bidData);
+
+            console.log(response)
+            if (response.data.status) {
+              confirmationMessage.style.color = "green";
+              confirmationMessage.textContent = "Bid placed successfully!";
+
+              // // Update the displayed bid amount
+              // const auctionItem = document
+              //   .querySelector(`.auction-item h3:contains('${itemName}')`)
+              //   .closest(".auction-item");
+              // auctionItem.querySelector(
+              //   ".auction-price"
+              // ).textContent = `Current Bid: ₹${bidAmount.toFixed(2)}`;
+
+              // // Reset form and close modal after 2 seconds
+              // bidForm.reset();
+              // setTimeout(() => {
+              //   bidModal.style.display = "none";
+              //   confirmationMessage.textContent = "";
+              // }, 2000);
+            }
+          } catch (error) {
+            confirmationMessage.style.color = "red";
+            confirmationMessage.textContent =
+              error.response?.data?.message ||
+              "Failed to place bid. Please try again.";
+          }
+        });
+
+        // Initial fetch
+        fetchAuctions();
+
+        // Custom :contains selector helper (since it's not natively supported)
+        Element.prototype.matches =
+          Element.prototype.matches ||
+          function (selector) {
+            const matches = document.querySelectorAll(selector);
+            return Array.from(matches).includes(this);
+          };
+      });
+    </script>
+  </body>
 </html>
